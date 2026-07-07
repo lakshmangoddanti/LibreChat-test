@@ -30,9 +30,14 @@ export default defineConfig(({ command }) => ({
   plugins: [
     react(),
     istanbul({
-      include: 'src/*',
-      exclude: ['node_modules', 'test/', '**/*.test.tsx', '**/*.test.ts'],
-      extension: ['.js', '.ts', '.jsx', '.tsx'],
+      include: ['src/**/*'],
+      exclude: [
+        'node_modules',
+        'test/',
+        '**/*.test.ts',
+        '**/*.test.tsx',
+      ],
+      extension: ['.js', '.jsx', '.ts', '.tsx'],
       forceBuildInstrument: true,
     }),
     nodePolyfills(),
