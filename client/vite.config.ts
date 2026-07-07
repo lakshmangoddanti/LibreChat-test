@@ -5,6 +5,7 @@ import { defineConfig } from 'vite';
 import { compression } from 'vite-plugin-compression2';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { VitePWA } from 'vite-plugin-pwa';
+import istanbul from 'vite-plugin-istanbul';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
@@ -28,6 +29,12 @@ export default defineConfig(({ command }) => ({
   envPrefix: ['VITE_', 'SCRIPT_', 'DOMAIN_', 'ALLOW_'],
   plugins: [
     react(),
+    istanbul({
+      include: 'src/*',
+      exclude: ['node_modules', 'test/', '**/*.test.tsx', '**/*.test.ts'],
+      extension: ['.js', '.ts', '.jsx', '.tsx'],
+      forceBuildInstrument: true,
+    }),
     nodePolyfills(),
     VitePWA({
       injectRegister: 'auto', // 'auto' | 'manual' | 'disabled'
