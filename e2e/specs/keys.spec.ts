@@ -11,6 +11,7 @@ const enterTestKey = async (page: Page, endpoint: string) => {
 };
 
 test.describe('Key suite', () => {
+  // test comment to trigger build
   // npx playwright test --config=e2e/playwright.config.local.ts --headed e2e/specs/keys.spec.ts
   test('Test Setting and Revoking Keys', async ({ page }) => {
     await page.goto('http://localhost:3080/', { timeout: 5000 });
