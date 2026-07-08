@@ -19,6 +19,10 @@
 pipeline {
   agent any
 
+  tools {
+    nodejs 'Node20'
+  }
+
   options {
     timestamps()
     timeout(time: 60, unit: 'MINUTES')
