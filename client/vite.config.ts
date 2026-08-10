@@ -5,7 +5,6 @@ import { defineConfig } from 'vite';
 import { compression } from 'vite-plugin-compression2';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { VitePWA } from 'vite-plugin-pwa';
-import istanbul from 'vite-plugin-istanbul'; // QTRACE_ISTANBUL_IMPORT
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
@@ -29,15 +28,6 @@ export default defineConfig(({ command }) => ({
   envPrefix: ['VITE_', 'SCRIPT_', 'DOMAIN_', 'ALLOW_'],
   plugins: [
     // QTRACE_ISTANBUL_START
-    istanbul({
-      include: 'src/**/*',
-      exclude: ['node_modules', 'tests/', 'e2e/**', 'src/**/*.test.*', 'src/**/*.spec.*'],
-      extension: ['.js', '.ts', '.jsx', '.tsx'],
-      requireEnv: false,
-      cypress: false,
-      checkProd: true,
-      forceBuildInstrument: false,
-    }),
     // QTRACE_ISTANBUL_END
   
     react(),
