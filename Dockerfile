@@ -41,7 +41,6 @@ RUN mkdir -p /app/client/public/images /app/api/logs
 EXPOSE 3080
 ENV HOST=0.0.0.0
 # QTRACE_PLAYWRIGHT_DOCKER
-ENV NODE_OPTIONS="--require ./tests/helpers/hook.cjs"
 # QTRACE_PLAYWRIGHT_DOCKER_END
 CMD ["npm", "run", "backend"]
 
